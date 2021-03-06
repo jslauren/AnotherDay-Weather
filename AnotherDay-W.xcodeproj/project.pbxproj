@@ -13,9 +13,11 @@
 		89A4777525F3BEC10075D97F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A4777325F3BEC10075D97F /* Main.storyboard */; };
 		89A4777725F3BEC10075D97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A4777625F3BEC10075D97F /* Assets.xcassets */; };
 		89A4777A25F3BEC10075D97F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A4777825F3BEC10075D97F /* LaunchScreen.storyboard */; };
+		8B27207A538163745783626C /* Pods_AnotherDay_W.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221F154221575A6AAF03CC0B /* Pods_AnotherDay_W.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221F154221575A6AAF03CC0B /* Pods_AnotherDay_W.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnotherDay_W.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A4776A25F3BEC10075D97F /* AnotherDay-W.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnotherDay-W.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A4776D25F3BEC10075D97F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89A4776F25F3BEC10075D97F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		89A4777625F3BEC10075D97F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89A4777925F3BEC10075D97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A4777B25F3BEC10075D97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		986FF15F0D648FB0538D8011 /* Pods-AnotherDay-W.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnotherDay-W.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W.release.xcconfig"; sourceTree = "<group>"; };
+		FC85E7B0833E0E8A05550442 /* Pods-AnotherDay-W.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnotherDay-W.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B27207A538163745783626C /* Pods_AnotherDay_W.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E5B1DB55AD6CD8815DDD95A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				221F154221575A6AAF03CC0B /* Pods_AnotherDay_W.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		89A4776125F3BEC10075D97F = {
 			isa = PBXGroup;
 			children = (
 				89A4776C25F3BEC10075D97F /* AnotherDay-W */,
 				89A4776B25F3BEC10075D97F /* Products */,
+				8F408B67E3F225BFE744B8FD /* Pods */,
+				5E5B1DB55AD6CD8815DDD95A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = "AnotherDay-W";
 			sourceTree = "<group>";
 		};
+		8F408B67E3F225BFE744B8FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC85E7B0833E0E8A05550442 /* Pods-AnotherDay-W.debug.xcconfig */,
+				986FF15F0D648FB0538D8011 /* Pods-AnotherDay-W.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89A4777E25F3BEC10075D97F /* Build configuration list for PBXNativeTarget "AnotherDay-W" */;
 			buildPhases = (
+				2A4B306055EC28D574BEA644 /* [CP] Check Pods Manifest.lock */,
 				89A4776625F3BEC10075D97F /* Sources */,
 				89A4776725F3BEC10075D97F /* Frameworks */,
 				89A4776825F3BEC10075D97F /* Resources */,
+				3D046C744895DB11255C46F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +157,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A4B306055EC28D574BEA644 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AnotherDay-W-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D046C744895DB11255C46F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89A4776625F3BEC10075D97F /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		89A4777F25F3BEC10075D97F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC85E7B0833E0E8A05550442 /* Pods-AnotherDay-W.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,6 +373,7 @@
 		};
 		89A4778025F3BEC10075D97F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 986FF15F0D648FB0538D8011 /* Pods-AnotherDay-W.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
