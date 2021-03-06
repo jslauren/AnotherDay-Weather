@@ -1,5 +1,5 @@
 //
-// ViewController.swift
+// MainVC.swift
 // AnotherDay-W
 //
 // Created by jslauren on 2021/03/06.
@@ -13,7 +13,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
