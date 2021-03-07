@@ -1,24 +1,32 @@
 PODS:
   - Alamofire (5.4.1)
+  - GoogleMaps/Base (4.1.0)
+  - GooglePlaces (4.1.0):
+    - GoogleMaps/Base (= 4.1.0)
   - SideMenuSwift (2.0.7)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - GooglePlaces (= 4.1.0)
   - SideMenuSwift
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - GoogleMaps
+    - GooglePlaces
     - SideMenuSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  GoogleMaps: 008e2c80e38605b56b560e8deb73d4194ff30bef
+  GooglePlaces: a058b776259c13e1323c9ff135549cb1b13ad8e7
   SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 6b2058693a70eb56b244b23d95073826ee1e271d
+PODFILE CHECKSUM: 8c0c365f23125f3a38adcfef4ed04ad59d1032af
 
 COCOAPODS: 1.5.2

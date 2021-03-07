@@ -12,6 +12,9 @@
 		8929878E25F4C60E00D1FFE7 /* SideBarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929878D25F4C60E00D1FFE7 /* SideBarMenuVC.swift */; };
 		8929879B25F4C95B00D1FFE7 /* SideMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8929879A25F4C95B00D1FFE7 /* SideMenu.png */; };
 		894F209325F5039D001FA330 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F209225F5039D001FA330 /* test.swift */; };
+		894F209625F50B7E001FA330 /* AddLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F209525F50B7E001FA330 /* AddLocationVC.swift */; };
+		894F209A25F50C11001FA330 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F209925F50C11001FA330 /* WeatherLocation.swift */; };
+		894F20A625F51355001FA330 /* APIkeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F20A525F51355001FA330 /* APIkeys.swift */; };
 		89A4776E25F3BEC10075D97F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A4776D25F3BEC10075D97F /* AppDelegate.swift */; };
 		89A4777025F3BEC10075D97F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A4776F25F3BEC10075D97F /* SceneDelegate.swift */; };
 		89A4777225F3BEC10075D97F /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A4777125F3BEC10075D97F /* MainVC.swift */; };
@@ -31,6 +34,9 @@
 		8929878D25F4C60E00D1FFE7 /* SideBarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuVC.swift; sourceTree = "<group>"; };
 		8929879A25F4C95B00D1FFE7 /* SideMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SideMenu.png; path = ../../../../Downloads/SideMenu.png; sourceTree = "<group>"; };
 		894F209225F5039D001FA330 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		894F209525F50B7E001FA330 /* AddLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationVC.swift; sourceTree = "<group>"; };
+		894F209925F50C11001FA330 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
+		894F20A525F51355001FA330 /* APIkeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkeys.swift; sourceTree = "<group>"; };
 		89A4776A25F3BEC10075D97F /* AnotherDay-W.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnotherDay-W.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A4776D25F3BEC10075D97F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89A4776F25F3BEC10075D97F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 		89A4778D25F3C0D00075D97F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				894F209925F50C11001FA330 /* WeatherLocation.swift */,
+				894F20A525F51355001FA330 /* APIkeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				89A4777125F3BEC10075D97F /* MainVC.swift */,
 				8929878225F47B1D00D1FFE7 /* PermissionVC.swift */,
 				8929878D25F4C60E00D1FFE7 /* SideBarMenuVC.swift */,
+				894F209525F50B7E001FA330 /* AddLocationVC.swift */,
 				894F209225F5039D001FA330 /* test.swift */,
 			);
 			path = Controller;
@@ -169,6 +178,7 @@
 				89A4776725F3BEC10075D97F /* Frameworks */,
 				89A4776825F3BEC10075D97F /* Resources */,
 				3D046C744895DB11255C46F3 /* [CP] Embed Pods Frameworks */,
+				61B01C73FB45169FA70551DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,6 +278,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		61B01C73FB45169FA70551DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -275,11 +303,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				894F20A625F51355001FA330 /* APIkeys.swift in Sources */,
 				89A4777225F3BEC10075D97F /* MainVC.swift in Sources */,
+				894F209A25F50C11001FA330 /* WeatherLocation.swift in Sources */,
 				894F209325F5039D001FA330 /* test.swift in Sources */,
 				8929878E25F4C60E00D1FFE7 /* SideBarMenuVC.swift in Sources */,
 				89A4776E25F3BEC10075D97F /* AppDelegate.swift in Sources */,
 				89A4777025F3BEC10075D97F /* SceneDelegate.swift in Sources */,
+				894F209625F50B7E001FA330 /* AddLocationVC.swift in Sources */,
 				8929878325F47B1D00D1FFE7 /* PermissionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
