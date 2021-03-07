@@ -17,6 +17,9 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // PermissionVC에서 네비게이션 push로 넘어왔기때문에 생성된 "Back" 버튼 숨기기.
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
 
