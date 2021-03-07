@@ -8,6 +8,6 @@ target 'AnotherDay-W' do
   # Pods for AnotherDay-W
   pod 'Alamofire', '~> 5.2'
   pod 'SwiftyJSON', '~> 4.0'
-  pod 'SideMenu', '~> 6.0'
+  pod 'SideMenuSwift'
   
 end
