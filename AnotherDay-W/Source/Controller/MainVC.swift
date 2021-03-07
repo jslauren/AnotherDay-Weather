@@ -30,5 +30,14 @@ class MainVC: UIViewController {
         sideMenuController?.revealMenu()
     }
     
+    @IBAction func moveAddLocationVC(_ sender: UIBarButtonItem) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationVC") else {
+            return
+        }
+
+        // 네비게이션VC라 push형식으로 화면전환하기.
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
 }
 
