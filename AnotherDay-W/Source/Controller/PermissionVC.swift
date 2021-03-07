@@ -88,6 +88,12 @@ extension PermissionVC: CLLocationManagerDelegate {
             self.showAlertToPrivacySetting(title: "위치정보 권한이 거부되었습니다.", message: "앱 설정 화면에서 위치 접근을 허용해 주세요.")
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.requestLocation()
+            
+            // MainVC로 화면 전환하기.
+            // 네비게이션VC라 push형식으로 화면전환.
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") else { return }
+            
+            self.navigationController?.pushViewController(vc, animated: false)
         @unknown default:
             print("🚫 알 수 없는 권한상태 입니다! : \(status)")
         }
