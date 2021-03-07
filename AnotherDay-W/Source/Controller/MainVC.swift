@@ -11,6 +11,7 @@
 
 
 import UIKit
+import SideMenuSwift
 
 class MainVC: UIViewController {
 
@@ -20,8 +21,14 @@ class MainVC: UIViewController {
         
         // PermissionVC에서 네비게이션 push로 넘어왔기때문에 생성된 "Back" 버튼 숨기기.
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        // 네비게이션바 위쪽 여백 추가하기.
+        navigationController?.additionalSafeAreaInsets.top = 10
     }
 
-
+    @IBAction func menuButtonDidClicked(_ sender: Any) {
+        sideMenuController?.revealMenu()
+    }
+    
 }
 

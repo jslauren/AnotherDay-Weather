@@ -91,7 +91,7 @@ extension PermissionVC: CLLocationManagerDelegate {
             
             // MainVC로 화면 전환하기.
             // 네비게이션VC라 push형식으로 화면전환.
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") else { return }
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") else { return }
             
             self.navigationController?.pushViewController(vc, animated: false)
         @unknown default:
@@ -139,7 +139,7 @@ extension PermissionVC: CLLocationManagerDelegate {
                 
                 locationName = placemark?.name ?? "알 수 없습니다"
             } else {
-                print("🚫에러: 검색장소 에러. 에러 코드: \(error)")
+                print("🚫에러: 검색장소 에러. 에러 코드: \(String(describing: error))")
                 locationName = "위치를 찾을 수 없습니다."
             }
             print("현재 위치 : \(locationName)")
