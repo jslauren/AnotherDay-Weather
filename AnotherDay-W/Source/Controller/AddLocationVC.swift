@@ -20,23 +20,14 @@ class AddLocationVC: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var weatherLocations: [WeatherLocation] = []    // WeatherLocation 구조체 배열 생성.
+    var selectedLocationIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        var weatherLocation = WeatherLocation(name: "분당동", latitude: 0, longitude: 0)
-        
-        weatherLocations.append(weatherLocation)
-        
-        weatherLocation = WeatherLocation(name: "수내동", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
-        
-        weatherLocation = WeatherLocation(name: "율동", latitude: 0, longitude: 0)
-        weatherLocations.append(weatherLocation)
+        initView()
+  
     }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
@@ -59,6 +50,24 @@ class AddLocationVC: UIViewController {
             // Display the autocomplete view controller.
             present(autocompleteController, animated: true, completion: nil)
     }
+    
+    func initView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // 테이블 뷰 배경 색 변경.
+        self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
+        self.tableView.backgroundColor = hexStringToUIColor(hex: baseColor)
+    }
+    
+    // 코드 내에 특정 Segue를 작동시키기 위해서는 perfomeSegue를 사용하는데,
+    // 이 메서드가 작동하기 전에 데이터를 전달할 수 있는 시기가 prepare메서드를 통해 이뤄질 수 있다.
+    // 뷰 컨트롤러 전환 전에 데이터를 처리할 수 있는 메서드가 prepare메서드다.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 선택 된 Location의 테이블 뷰 셀의 인덱스를 selectedLocationIndex변수에 저장한다.
+        // MainVC에서 해당 값에 접근하여 선택 된 Location의 정보들을 띄워주기 위해서이다.
+        selectedLocationIndex = tableView.indexPathForSelectedRow!.row
+    }
 }
 
 extension AddLocationVC: UITableViewDataSource, UITableViewDelegate {
@@ -71,6 +80,7 @@ extension AddLocationVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddLocationCell", for: indexPath)
         
         cell.textLabel?.text = weatherLocations[indexPath.row].name
+        cell.backgroundColor = hexStringToUIColor(hex: baseColor)
         cell.detailTextLabel?.text = "Lat:\(weatherLocations[indexPath.row].latitude), Lon:\(weatherLocations[indexPath.row].longitude)"
         
         return cell
@@ -116,15 +126,5 @@ extension AddLocationVC: GMSAutocompleteViewControllerDelegate {
   func wasCancelled(_ viewController: GMSAutocompleteViewController) {
     dismiss(animated: true, completion: nil)
   }
-
-// MARK: - Desired
-  // Turn the network activity indicator on and off again.
-  func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-   // UIApplication.shared.isNetworkActivityIndicatorVisible = true
-  }
-
-  func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-   // UIApplication.shared.isNetworkActivityIndicatorVisible = false
-  }
-
+    
 }
