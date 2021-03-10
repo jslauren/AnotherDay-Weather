@@ -11,7 +11,7 @@
 
 import UIKit
 
-let baseColor = "B0D0FF"
+let baseColor = "BCD6FF"
 
 func hexStringToUIColor (hex:String) -> UIColor {
     var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
