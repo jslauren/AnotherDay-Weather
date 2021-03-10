@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890F4F3125F90398008BAB79 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F4F3025F90398008BAB79 /* PageVC.swift */; };
 		8912B53225F3C28D00718990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8912B53425F3C28D00718990 /* InfoPlist.strings */; };
 		8929878325F47B1D00D1FFE7 /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929878225F47B1D00D1FFE7 /* PermissionVC.swift */; };
 		8929878E25F4C60E00D1FFE7 /* SideBarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929878D25F4C60E00D1FFE7 /* SideBarMenuVC.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		221F154221575A6AAF03CC0B /* Pods_AnotherDay_W.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnotherDay_W.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890F4F3025F90398008BAB79 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		8912B53325F3C28D00718990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8912B53625F3C2A000718990 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		8912B53725F3C2A000718990 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				8929878D25F4C60E00D1FFE7 /* SideBarMenuVC.swift */,
 				894F209525F50B7E001FA330 /* AddLocationVC.swift */,
 				894F209225F5039D001FA330 /* test.swift */,
+				890F4F3025F90398008BAB79 /* PageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				8929AF5F25F71BF9001D9BA5 /* Color.swift in Sources */,
 				894F209325F5039D001FA330 /* test.swift in Sources */,
 				8929878E25F4C60E00D1FFE7 /* SideBarMenuVC.swift in Sources */,
+				890F4F3125F90398008BAB79 /* PageVC.swift in Sources */,
 				89A4776E25F3BEC10075D97F /* AppDelegate.swift in Sources */,
 				89A4777025F3BEC10075D97F /* SceneDelegate.swift in Sources */,
 				894F209625F50B7E001FA330 /* AddLocationVC.swift in Sources */,

@@ -24,7 +24,6 @@ class PermissionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         // Background에서 Foreground로 돌아오는 것 체크하기.
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] notification in
@@ -91,9 +90,9 @@ extension PermissionVC: CLLocationManagerDelegate {
             
             // MainVC로 화면 전환하기.
             // 네비게이션VC라 push형식으로 화면전환.
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") else { return }
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "PageVC") else { return }
             
-            self.navigationController?.pushViewController(vc, animated: false)
+            self.present(vc, animated: false, completion: nil)
         @unknown default:
             print("⚠️ 경고: 알 수 없는 권한상태 입니다! : \(status)")
         }

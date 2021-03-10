@@ -24,7 +24,6 @@ class AddLocationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         initView()
   
@@ -54,13 +53,8 @@ class AddLocationVC: UIViewController {
     func initView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // 테이블 뷰 배경 색 변경.
-        self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
-        self.tableView.backgroundColor = hexStringToUIColor(hex: baseColor)
-        
+                
         // 저장한 위치들을 불러온다.
-        
         loadLocations()
     }
     
@@ -107,10 +101,9 @@ extension AddLocationVC: UITableViewDataSource, UITableViewDelegate {
     
     // 생성
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AddLocationCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = weatherLocations[indexPath.row].name
-        cell.backgroundColor = hexStringToUIColor(hex: baseColor)
         cell.detailTextLabel?.text = "Lat:\(weatherLocations[indexPath.row].latitude), Lon:\(weatherLocations[indexPath.row].longitude)"
         
         return cell
