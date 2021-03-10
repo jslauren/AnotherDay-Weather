@@ -36,6 +36,7 @@ class MainVC: UIViewController {
             weatherLocations.append(weatherLocation)
         }
         
+        loadLocations()
         updateUserInterface()
         
     }
@@ -87,6 +88,18 @@ class MainVC: UIViewController {
         
         destination.weatherLocations = weatherLocations
     }
-
+    
+    func loadLocations() {
+        guard let locationsEncoded = UserDefaults.standard.value(forKey: "weatherLocations") as? Data else {
+            print("⚠️ 경고: 'UserDefaults'로 부터 weatherLocations 데이터를 불러올 수 없습니다. 이 에러는 앱이 처음 설치되었을때 발생하는 에러이므로, 해당 경우에는 무시하셔도 좋습니다.")
+            return
+        }
+        let decoder = JSONDecoder()
+        if let weatherLocations = try? decoder.decode(Array.self, from: locationsEncoded) as [WeatherLocation] {
+            self.weatherLocations = weatherLocations
+        } else {
+            print("🚫 에러: UserDefaults로 부터 decode데이터를 읽지 못하였습니다.")
+        }
+    }
 }
 

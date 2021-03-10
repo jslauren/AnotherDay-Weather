@@ -95,7 +95,7 @@ extension PermissionVC: CLLocationManagerDelegate {
             
             self.navigationController?.pushViewController(vc, animated: false)
         @unknown default:
-            print("🚫 알 수 없는 권한상태 입니다! : \(status)")
+            print("⚠️ 경고: 알 수 없는 권한상태 입니다! : \(status)")
         }
     }
     
@@ -139,7 +139,7 @@ extension PermissionVC: CLLocationManagerDelegate {
                 
                 locationName = placemark?.name ?? "알 수 없습니다"
             } else {
-                print("🚫에러: 검색장소 에러. 에러 코드: \(String(describing: error))")
+                print("🚫 에러: 검색장소 에러. 에러 코드: \(String(describing: error))")
                 locationName = "위치를 찾을 수 없습니다."
             }
             print("현재 위치 : \(locationName)")
@@ -147,7 +147,7 @@ extension PermissionVC: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("🚫에러: \(error.localizedDescription). 디바이스의 위치정보를 가져오는데 실패하였습니다.")
+        print("🚫 에러: \(error.localizedDescription). 디바이스의 위치정보를 가져오는데 실패하였습니다.")
     }
 }
 
