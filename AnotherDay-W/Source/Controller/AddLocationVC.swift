@@ -58,6 +58,10 @@ class AddLocationVC: UIViewController {
         // 테이블 뷰 배경 색 변경.
         self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
         self.tableView.backgroundColor = hexStringToUIColor(hex: baseColor)
+        
+        // 저장한 위치들을 불러온다.
+        
+        loadLocations()
     }
     
     // 코드 내에 특정 Segue를 작동시키기 위해서는 perfomeSegue를 사용하는데,
@@ -67,6 +71,32 @@ class AddLocationVC: UIViewController {
         // 선택 된 Location의 테이블 뷰 셀의 인덱스를 selectedLocationIndex변수에 저장한다.
         // MainVC에서 해당 값에 접근하여 선택 된 Location의 정보들을 띄워주기 위해서이다.
         selectedLocationIndex = tableView.indexPathForSelectedRow!.row
+        saveLocations()
+    }
+    
+    // 뷰 전환을 하면 검색한 위치데이터 값들은 사라지므로, 해당 값들이 사라지지 않기 위해 UserDefaults를 사용하여 저장해 놓는다.
+    // 값들을 Json 형식으로 저장할 예정이므로, Model폴더의 'WeatherLocation' 클래스에 'Codable'을 채택해준다.
+    func saveLocations() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(weatherLocations) {
+            UserDefaults.standard.setValue(encoded, forKey: "weatherLocations")
+        } else {
+            print("🚫 에러: 인코딩 저장이 작동하지 않습니다!")
+        }
+    }
+    
+    // 저장해놓은 위치 데이터들을 뷰가 불려질때마다 불러온다.
+    func loadLocations() {
+        guard let locationsEncoded = UserDefaults.standard.value(forKey: "weatherLocations") as? Data else {
+            print("⚠️ 경고: 'UserDefaults'로 부터 weatherLocations 데이터를 불러올 수 없습니다. 이 에러는 앱이 처음 설치되었을때 발생하는 에러이므로, 해당 경우에는 무시하셔도 좋습니다.")
+            return
+        }
+        let decoder = JSONDecoder()
+        if let weatherLocations = try? decoder.decode(Array.self, from: locationsEncoded) as [WeatherLocation] {
+            self.weatherLocations = weatherLocations
+        } else {
+            print("🚫 에러: UserDefaults로 부터 decode데이터를 읽지 못하였습니다.")
+        }
     }
 }
 
@@ -119,7 +149,7 @@ extension AddLocationVC: GMSAutocompleteViewControllerDelegate {
 
   func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
     // TODO: handle the error.
-    print("Error: ", error.localizedDescription)
+    print("🚫 Error: ", error.localizedDescription)
   }
 
   // 취소 버튼 터치 시, 창 닫기.
