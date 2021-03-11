@@ -11,19 +11,28 @@
 
 
 import UIKit
-import SideMenuSwift
+
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    
+    dateFormatter.dateFormat = "EEEE, MMM d, h:mm aaa"
+    
+    return dateFormatter
+}()
 
 class MainVC: UIViewController {
     
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var placeLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var temperatureImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var maxTemperatureLabel: UILabel!
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var compareLabel: UILabel!
+    @IBOutlet weak var pageControl: UIPageControl!
     
-    var weatherLocation: WeatherLocation!
+    var weatherDetail: WeatherDetail!
     var locationIndex = 0
     
     override func viewDidLoad() {
@@ -34,17 +43,38 @@ class MainVC: UIViewController {
         
     }
     
-    @IBAction func menuButtonDidClicked(_ sender: Any) {
-        sideMenuController?.revealMenu()
+    func initView() {
+        //     self.toolBar.barTintColor = hexStringToUIColor(hex: baseColor)
+        self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
     }
     
-    @IBAction func moveAddLocationVC(_ sender: UIBarButtonItem) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationVC") else {
-            return
-        }
+    func updateUserInterface() {
+        let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
+        let weatherLocation = pageVC.weatherLocations[locationIndex]
         
-        // 네비게이션VC라 push형식으로 화면전환하기.
-        self.navigationController?.pushViewController(vc, animated: false)
+        weatherDetail = WeatherDetail(name: weatherLocation.name, latitude: weatherLocation.latitude, longitude: weatherLocation.longitude)
+        
+        // pageControl 값 셋팅.
+        pageControl.numberOfPages = pageVC.weatherLocations.count
+        pageControl.currentPage = locationIndex
+        
+        weatherDetail.getData {
+            // UILabel.text must be used from main thread only 에러 때문에,
+            // DispatchQueue.main.async안에 해당 구문을 넣어준다.
+            // UI와 관련된 모든 이벤트가 메인 쓰레드에 붙기 때문에 반드시 메인에서 구현해야한다. Ref : https://zeddios.tistory.com/519
+            DispatchQueue.main.async { [self] in
+//                dateFormatter.timeZone = TimeZone(identifier: self.weatherDetail.timezone)
+//                let usableDate = Date(timeIntervalSince1970: self.weatherDetail.currentTime)
+                
+                self.temperatureImageView.image = UIImage(named: self.weatherDetail.dailyIcon)
+                self.placeLabel.text = self.weatherDetail.name
+                self.summaryLabel.text = self.weatherDetail.summary
+                self.temperatureLabel.text = "\(self.weatherDetail.temperature)°"
+                self.maxTemperatureLabel.text = "최고 : \(self.weatherDetail.maxTemperature)°"
+                self.minTemperatureLabel.text = "최저 : \(self.weatherDetail.minTemperature)°"
+                self.compareLabel.text = "어제보다 2° 높음"
+            }
+        }
     }
     
     @IBAction func unwindFromMainVC(segue: UIStoryboardSegue) {
@@ -53,26 +83,12 @@ class MainVC: UIViewController {
         locationIndex = source.selectedLocationIndex
         
         let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
-
+        
+        // AddLocationVC에서 선택된 LocationIndex의 정보를 PageVC로 넘긴다.
+        // PageVC는 넘겨받은 정보로 페이징 처리를 하고 다시 MainVC로 전환시킨다.
+        // 전환 후 MainVC의 updateUserInterface 메서드를 통해 화면을 업데이트 한다.
         pageVC.weatherLocations = source.weatherLocations
         pageVC.setViewControllers([pageVC.createMainVC(forPage: locationIndex)], direction: .forward, animated: false, completion: nil)
-    }
-    
-    func initView() {
-        //     self.toolBar.barTintColor = hexStringToUIColor(hex: baseColor)
-        self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
-    }
-    
-    func updateUserInterface() {
-        let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
-        
-        weatherLocation = pageVC.weatherLocations[locationIndex]
-        
-        placeLabel.text = weatherLocation.name
-        temperatureLabel.text = "--°"
-        maxTemperatureLabel.text = "최고 : --°"
-        minTemperatureLabel.text = "최저 : --°"
-        compareLabel.text = "어제보다 --° 높음"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,6 +96,21 @@ class MainVC: UIViewController {
         let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
         
         destination.weatherLocations = pageVC.weatherLocations
+    }
+    
+    @IBAction func pageControlTapped(_ sender: UIPageControl) {
+        let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
+        var direction: UIPageViewController.NavigationDirection = .forward
+        
+        // 스와이핑 하지않고 pageControll버튼을 눌렀을 때 화면전환에 애니메이션을 올바르게 주기위한 방법.
+        // 밑에 setViewControllers에서 direction을 그냥 .forwawrd로 주고 animated를 true로 준다면,
+        // 왼쪽이든 오른쪽이든 같은방향으로 스와이핑 애니메이션이 보이게 된다.
+        // 옳바른 방향으로 애니메이션을 보여주고 싶다면 아래 구문을 이용하면 된다.
+        if sender.currentPage < locationIndex {
+            direction = .reverse
+        }
+        
+        pageVC.setViewControllers([pageVC.createMainVC(forPage: sender.currentPage)], direction: direction, animated: true, completion: nil)
     }
     
 }

@@ -59,13 +59,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swj-kR-e6w">
                                 <rect key="frame" x="0.0" y="44" width="375" height="220"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고 : 29°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9G-01-pSj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고 : --°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9G-01-pSj">
                                         <rect key="frame" x="301" y="86" width="75" height="21"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저 : -19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLw-0o-ZBg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최저 : --°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLw-0o-ZBg">
                                         <rect key="frame" x="301" y="115" width="75" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Gvw-Y7-PXC"/>
@@ -74,27 +74,19 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분당구 분당동" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNH-87-DZk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재위치" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNH-87-DZk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="s0W-MI-FYp">
-                                        <rect key="frame" x="0.0" y="45" width="145" height="145"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="144.5" id="ufv-K7-dXM"/>
-                                            <constraint firstAttribute="width" constant="145" id="z2u-fE-OVW"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제보다 2° 높음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga1-4w-i1F">
-                                        <rect key="frame" x="153" y="164" width="222" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제보다 -° 높음" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga1-4w-i1F">
+                                        <rect key="frame" x="153" y="165" width="109.5" height="21"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="817-74-C4X">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="817-74-C4X">
                                         <rect key="frame" x="153" y="65" width="148" height="101"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="101" id="CSm-gV-ZF7"/>
@@ -103,26 +95,52 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cxt-8S-MP2">
+                                        <rect key="frame" x="0.0" y="193" width="375" height="28"/>
+                                        <connections>
+                                            <action selector="pageControlTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="cbQ-rP-0w7"/>
+                                        </connections>
+                                    </pageControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 날씨 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCI-fZ-fc8">
+                                        <rect key="frame" x="142" y="36" width="88" height="21"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="s0W-MI-FYp">
+                                        <rect key="frame" x="8" y="47.5" width="135" height="135"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="134.5" id="ufv-K7-dXM"/>
+                                            <constraint firstAttribute="width" constant="135" id="z2u-fE-OVW"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.73725490196078436" green="0.83921568627450982" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="817-74-C4X" firstAttribute="leading" secondItem="ga1-4w-i1F" secondAttribute="leading" id="8F3-1S-kMq"/>
                                     <constraint firstItem="C9G-01-pSj" firstAttribute="leading" secondItem="817-74-C4X" secondAttribute="trailing" id="Aef-LU-7BL"/>
-                                    <constraint firstItem="pNH-87-DZk" firstAttribute="leading" secondItem="s0W-MI-FYp" secondAttribute="leading" id="Kpu-MB-SuV"/>
+                                    <constraint firstItem="MCI-fZ-fc8" firstAttribute="centerX" secondItem="Cxt-8S-MP2" secondAttribute="centerX" constant="-1.5" id="CjU-tU-QPc"/>
+                                    <constraint firstItem="pNH-87-DZk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s0W-MI-FYp" secondAttribute="leading" constant="-8" id="Kpu-MB-SuV"/>
                                     <constraint firstItem="pNH-87-DZk" firstAttribute="leading" secondItem="swj-kR-e6w" secondAttribute="leading" id="NN5-n0-ZHQ"/>
                                     <constraint firstItem="ga1-4w-i1F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s0W-MI-FYp" secondAttribute="trailing" constant="8" symbolic="YES" id="P4U-w6-1k0"/>
+                                    <constraint firstItem="817-74-C4X" firstAttribute="top" secondItem="MCI-fZ-fc8" secondAttribute="bottom" constant="8" symbolic="YES" id="PpN-ZD-LU7"/>
+                                    <constraint firstItem="Cxt-8S-MP2" firstAttribute="top" secondItem="ga1-4w-i1F" secondAttribute="bottom" constant="7" id="SzY-0y-zFx"/>
                                     <constraint firstItem="oLw-0o-ZBg" firstAttribute="top" secondItem="C9G-01-pSj" secondAttribute="bottom" constant="8" symbolic="YES" id="Ue5-qg-V4p"/>
                                     <constraint firstItem="817-74-C4X" firstAttribute="top" secondItem="pNH-87-DZk" secondAttribute="bottom" constant="29" id="XUG-Z5-ub6"/>
                                     <constraint firstAttribute="trailing" secondItem="oLw-0o-ZBg" secondAttribute="trailing" constant="-1" id="Y9V-ga-ift"/>
-                                    <constraint firstItem="ga1-4w-i1F" firstAttribute="top" secondItem="oLw-0o-ZBg" secondAttribute="bottom" constant="28" id="ZUf-3H-Fxa"/>
+                                    <constraint firstItem="ga1-4w-i1F" firstAttribute="top" secondItem="oLw-0o-ZBg" secondAttribute="bottom" constant="29" id="ZUf-3H-Fxa"/>
                                     <constraint firstAttribute="trailing" secondItem="pNH-87-DZk" secondAttribute="trailing" id="dqY-bv-VZC"/>
-                                    <constraint firstItem="s0W-MI-FYp" firstAttribute="top" secondItem="pNH-87-DZk" secondAttribute="bottom" constant="9.5" id="ebW-DA-9FS"/>
-                                    <constraint firstItem="ga1-4w-i1F" firstAttribute="leading" secondItem="s0W-MI-FYp" secondAttribute="trailing" constant="8" symbolic="YES" id="gOU-3s-OyN"/>
+                                    <constraint firstItem="s0W-MI-FYp" firstAttribute="top" secondItem="pNH-87-DZk" secondAttribute="bottom" constant="12" id="ebW-DA-9FS"/>
+                                    <constraint firstItem="ga1-4w-i1F" firstAttribute="leading" secondItem="s0W-MI-FYp" secondAttribute="trailing" constant="10" id="gOU-3s-OyN"/>
+                                    <constraint firstItem="MCI-fZ-fc8" firstAttribute="centerX" secondItem="pNH-87-DZk" secondAttribute="centerX" constant="-1.5" id="iGl-Gz-kWM"/>
                                     <constraint firstItem="oLw-0o-ZBg" firstAttribute="trailing" secondItem="C9G-01-pSj" secondAttribute="trailing" id="jyp-U3-wT6"/>
                                     <constraint firstItem="pNH-87-DZk" firstAttribute="top" secondItem="swj-kR-e6w" secondAttribute="top" id="kMU-16-687"/>
+                                    <constraint firstItem="MCI-fZ-fc8" firstAttribute="leading" secondItem="s0W-MI-FYp" secondAttribute="trailing" constant="-1" id="ow1-we-10Z"/>
                                     <constraint firstAttribute="height" constant="220" id="uQ2-5J-Asw"/>
-                                    <constraint firstItem="pNH-87-DZk" firstAttribute="trailing" secondItem="ga1-4w-i1F" secondAttribute="trailing" id="veQ-PK-q2E"/>
+                                    <constraint firstItem="pNH-87-DZk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ga1-4w-i1F" secondAttribute="trailing" id="veQ-PK-q2E"/>
                                     <constraint firstItem="oLw-0o-ZBg" firstAttribute="leading" secondItem="C9G-01-pSj" secondAttribute="leading" id="xfx-LT-P6C"/>
+                                    <constraint firstItem="Cxt-8S-MP2" firstAttribute="leading" secondItem="s0W-MI-FYp" secondAttribute="leading" constant="-8" id="xty-ju-i1b"/>
                                     <constraint firstItem="oLw-0o-ZBg" firstAttribute="top" secondItem="swj-kR-e6w" secondAttribute="top" constant="115" id="yaU-rh-zIj"/>
                                 </constraints>
                             </view>
@@ -164,7 +182,9 @@
                         <outlet property="compareLabel" destination="ga1-4w-i1F" id="RHp-Lb-e8a"/>
                         <outlet property="maxTemperatureLabel" destination="C9G-01-pSj" id="2JH-sa-UxJ"/>
                         <outlet property="minTemperatureLabel" destination="oLw-0o-ZBg" id="Ilf-Y7-tu2"/>
+                        <outlet property="pageControl" destination="Cxt-8S-MP2" id="yvZ-6N-64a"/>
                         <outlet property="placeLabel" destination="pNH-87-DZk" id="J9b-7L-gmc"/>
+                        <outlet property="summaryLabel" destination="MCI-fZ-fc8" id="FsL-8g-3d7"/>
                         <outlet property="temperatureImageView" destination="s0W-MI-FYp" id="xRP-Xa-Cvd"/>
                         <outlet property="temperatureLabel" destination="817-74-C4X" id="6Or-Pd-jmP"/>
                         <outlet property="toolBar" destination="rcW-Ic-gbc" id="iUk-OZ-htb"/>
