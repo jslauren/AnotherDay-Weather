@@ -12,34 +12,50 @@
 
 import Foundation
 
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    
+    dateFormatter.dateFormat = "EEEE"
+    
+    return dateFormatter
+}()
+
+struct DailyWeather {
+    var dailyIcon: String
+    var dailyWeekday: String
+    var dailySummary: String
+    var dailyHigh: Int
+    var dailyLow: Int
+}
+
 class WeatherDetail: WeatherLocation {
     
-    struct Result: Codable {
+    private struct Result: Codable {
         var timezone: String
         var current: Current
         var daily: [Daily]
     }
     
-    struct Current: Codable {
+    private struct Current: Codable {
         var dt: TimeInterval
         var temp: Double
         var weather: [Weather]
     }
     
-    struct Daily: Codable {
+    private struct Daily: Codable {
+        var dt: TimeInterval
         var temp: Temp
-        var sunrise: TimeInterval
-        var sunset: TimeInterval
+        var weather: [Weather]
     }
     
-    struct Weather: Codable {
+    private struct Weather: Codable {
         var description: String
         var icon: String
     }
     
-    struct Temp: Codable {
-        var min: Double
+    private struct Temp: Codable {
         var max: Double
+        var min: Double
     }
     
     var currentTime = 0.0
@@ -47,7 +63,8 @@ class WeatherDetail: WeatherLocation {
     var maxTemperature = 0
     var minTemperature = 0
     var summary = ""
-    var dailyIcon = ""
+    var dayIcon = ""
+    var dailyWeatherData: [DailyWeather] = []
     
     func getData(completed: @escaping () -> ()) {
         let urlString =  "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely&units=metric&appid=\(APIkeys.openWheatherKey)"
@@ -81,7 +98,26 @@ class WeatherDetail: WeatherLocation {
                 self.maxTemperature = Int(result.daily[0].temp.max.rounded())
                 self.minTemperature = Int(result.daily[0].temp.min.rounded())
                 self.summary = result.current.weather[0].description
-                self.dailyIcon = result.current.weather[0].icon
+                self.dayIcon = result.current.weather[0].icon
+                
+                for index in 0..<result.daily.count {
+                    let weekdayDate = Date(timeIntervalSince1970: result.daily[index].dt)
+                    
+                    // 타임존 맞추기. ex) +0900 Asia/Seoul
+                    dateFormatter.timeZone = TimeZone(identifier: result.timezone)
+                    
+                    let dailyWeekday = dateFormatter.string(from: weekdayDate)
+                    let dailyIcon = result.daily[index].weather[0].icon
+                    let dailySummary = result.daily[index].weather[0].description
+                    let dailyHigh = Int(result.daily[index].temp.max.rounded()) // .rounded() -> 반올림
+                    let dailyLow = Int(result.daily[index].temp.min.rounded())
+                    
+                    let dailyWeather = DailyWeather(dailyIcon: dailyIcon, dailyWeekday: dailyWeekday, dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
+                    
+                    self.dailyWeatherData.append(dailyWeather)
+                    
+                    print("Day: \(dailyWeekday), High: \(dailyHigh), Low: \(dailyLow)")
+                }
                 
             } catch {
                 print("🚫 JSON 에러: \(error.localizedDescription)")

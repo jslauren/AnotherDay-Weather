@@ -15,7 +15,7 @@ import UIKit
 private let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
     
-    dateFormatter.dateFormat = "EEEE, MMM d, h:mm aaa"
+    dateFormatter.dateFormat = "EEEE, MMM d" //, h:mm aaa"
     
     return dateFormatter
 }()
@@ -31,6 +31,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var compareLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var tableView: UITableView!
     
     var weatherDetail: WeatherDetail!
     var locationIndex = 0
@@ -44,8 +45,13 @@ class MainVC: UIViewController {
     }
     
     func initView() {
-        //     self.toolBar.barTintColor = hexStringToUIColor(hex: baseColor)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
+        self.tableView.backgroundColor = hexStringToUIColor(hex: baseColor)
+        
+        clearUserInterface()
     }
     
     func updateUserInterface() {
@@ -66,15 +72,27 @@ class MainVC: UIViewController {
 //                dateFormatter.timeZone = TimeZone(identifier: self.weatherDetail.timezone)
 //                let usableDate = Date(timeIntervalSince1970: self.weatherDetail.currentTime)
                 
-                self.temperatureImageView.image = UIImage(named: self.weatherDetail.dailyIcon)
+                self.temperatureImageView.image = UIImage(named: self.weatherDetail.dayIcon)
                 self.placeLabel.text = self.weatherDetail.name
                 self.summaryLabel.text = self.weatherDetail.summary
                 self.temperatureLabel.text = "\(self.weatherDetail.temperature)°"
                 self.maxTemperatureLabel.text = "최고 : \(self.weatherDetail.maxTemperature)°"
                 self.minTemperatureLabel.text = "최저 : \(self.weatherDetail.minTemperature)°"
                 self.compareLabel.text = "어제보다 2° 높음"
+                self.tableView.reloadData()
             }
         }
+    }
+    
+    // 화면 페이징 시 메인화면에 나타낼 정보 안보이게 하기.
+    func clearUserInterface() {
+        placeLabel.text = ""
+        summaryLabel.text = ""
+        temperatureImageView.image  = UIImage()
+        temperatureLabel.text = ""
+        maxTemperatureLabel.text = ""
+        minTemperatureLabel.text = ""
+        compareLabel.text = ""
     }
     
     @IBAction func unwindFromMainVC(segue: UIStoryboardSegue) {
@@ -115,3 +133,17 @@ class MainVC: UIViewController {
     
 }
 
+extension MainVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weatherDetail.dailyWeatherData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DailyTableViewCell
+        
+        cell.dailyWeather = weatherDetail.dailyWeatherData[indexPath.row]
+        
+        return cell
+    }   
+    
+}
