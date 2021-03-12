@@ -81,9 +81,23 @@ class MainVC: UIViewController {
                 self.temperatureLabel.text = "\(self.weatherDetail.temperature)°"
                 self.maxTemperatureLabel.text = "최고 : \(self.weatherDetail.maxTemperature)°"
                 self.minTemperatureLabel.text = "최저 : \(self.weatherDetail.minTemperature)°"
-                self.compareLabel.text = "어제보다 2° 높음"
+               // self.compareLabel.text = "어제보다 2° 높음"
                 self.tableView.reloadData()
                 self.collectionView.reloadData()
+            }
+            
+            // 어제의 현재시간 날씨 데이터를 가져와 오늘의 데이터와 비교하여 표기함.
+            self.weatherDetail.getHistoricalData(dt: self.weatherDetail.currentTime) {
+                DispatchQueue.main.async { [self] in
+                    
+                    if self.weatherDetail.historicalTemperature == self.weatherDetail.temperature {
+                        self.compareLabel.text = "어제와 같아요"
+                    } else if self.weatherDetail.historicalTemperature > self.weatherDetail.temperature {
+                        self.compareLabel.text = "어제보다 \(weatherDetail.historicalTemperature-self.weatherDetail.temperature)도 낮아요"
+                    } else {
+                        self.compareLabel.text = "어제보다 \(self.weatherDetail.temperature-weatherDetail.historicalTemperature)도 높아요"
+                    }
+                }
             }
         }
     }

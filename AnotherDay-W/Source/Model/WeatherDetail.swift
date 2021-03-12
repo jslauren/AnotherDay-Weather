@@ -51,6 +51,11 @@ class WeatherDetail: WeatherLocation {
         var hourly: [Hourly]
     }
     
+    private struct HistoricalResult: Codable {
+        var timezone: String
+        var current: Current
+    }
+    
     private struct Current: Codable {
         var dt: TimeInterval
         var temp: Double
@@ -82,6 +87,7 @@ class WeatherDetail: WeatherLocation {
     
     var currentTime = 0.0
     var temperature = 0
+    var historicalTemperature = 0
     var maxTemperature = 0
     var minTemperature = 0
     var summary = ""
@@ -91,9 +97,9 @@ class WeatherDetail: WeatherLocation {
     
     func getData(completed: @escaping () -> ()) {
         let urlString =  "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely&units=metric&appid=\(APIkeys.openWheatherKey)"
-        
+
         print("🏃🏻 URL에 접근하는 중입니다. \(urlString)")
-        
+
         // URL 생성
         guard let url = URL(string: urlString) else {
             print("🚫 에러: URL을 생성할 수 없습니다. \(urlString)")
@@ -116,7 +122,7 @@ class WeatherDetail: WeatherLocation {
                 
                 print("'\(self.name)'의 타임 존 : \(result.timezone)")
                 
-                //self.currentTime = result.current.dt
+                self.currentTime = result.current.dt
                 self.temperature = Int(result.current.temp.rounded())
                 self.maxTemperature = Int(result.daily[0].temp.max.rounded())
                 self.minTemperature = Int(result.daily[0].temp.min.rounded())
@@ -169,7 +175,43 @@ class WeatherDetail: WeatherLocation {
             }
             completed()
         }
+        //모든 작업은 기본적으로 일시정지된 상태로 시작. 데이터 작업은 resume()를 호출하여 시작.
+        task.resume()
+    }
+    
+    func getHistoricalData(dt: TimeInterval, completed: @escaping () -> ()) {
+        // 유닉스시간법이라 어제의 시간을 구하려면 -86400을 해주어야 함.
+        let historicalURLString = "https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=\(latitude)&lon=\(longitude)&dt=\(Int(dt.rounded() - 86400))&units=metric&appid=\(APIkeys.openWheatherKey)"
         
+        print("🏃🏻🏃🏻 historicalURLString에 접근하는 중입니다. \(historicalURLString)")
+        
+        // URL 생성
+        guard let url = URL(string: historicalURLString) else {
+            print("🚫 에러: URL을 생성할 수 없습니다. \(historicalURLString)")
+            completed()
+            
+            return
+        }
+        
+        // 세션 생성
+        let session = URLSession.shared
+        
+        // .dataTsk메서드를 이용하여 데이터 받아오기.
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("🚫 에러: \(error.localizedDescription)")
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(HistoricalResult.self, from: data!)
+                
+                self.historicalTemperature = Int(result.current.temp.rounded())
+            } catch {
+                print("🚫 JSON 에러: \(error.localizedDescription)")
+            }
+            completed()
+        }
+        //모든 작업은 기본적으로 일시정지된 상태로 시작. 데이터 작업은 resume()를 호출하여 시작.
         task.resume()
     }
 }
