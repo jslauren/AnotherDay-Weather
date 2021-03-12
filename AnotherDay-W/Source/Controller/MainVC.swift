@@ -32,6 +32,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var compareLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var weatherDetail: WeatherDetail!
     var locationIndex = 0
@@ -47,6 +48,8 @@ class MainVC: UIViewController {
     func initView() {
         tableView.delegate = self
         tableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         self.view.backgroundColor = hexStringToUIColor(hex: baseColor)
         self.tableView.backgroundColor = hexStringToUIColor(hex: baseColor)
@@ -80,6 +83,7 @@ class MainVC: UIViewController {
                 self.minTemperatureLabel.text = "최저 : \(self.weatherDetail.minTemperature)°"
                 self.compareLabel.text = "어제보다 2° 높음"
                 self.tableView.reloadData()
+                self.collectionView.reloadData()
             }
         }
     }
@@ -135,15 +139,37 @@ class MainVC: UIViewController {
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // API로 받아온 데이터의 갯수만큼 행을 Row를 띄워준다.
         return weatherDetail.dailyWeatherData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // DailyTableViewCell로 캐스팅하고,
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DailyTableViewCell
         
+        // 받아온 날씨정보를 DailyTableViewCell.swift에서 만든 변수 형식에 맞게 넣어주면,
+        // DailyTableViewCell.swift에 dailyWeather변수는
+        // weatherDetail.dailyWeatherData[indexPath.row]로 받은 데이터를 각각의 IBOutlet에 값을 넘겨주고,
         cell.dailyWeather = weatherDetail.dailyWeatherData[indexPath.row]
-        
+                
+        // 그렇게 넣어준 cell을 return 해준다.
         return cell
     }   
+    
+}
+
+extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weatherDetail.hourlyWeatherData.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let hourlyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyCell", for: indexPath) as! HourlyCollectionViewCell
+        
+        hourlyCell.hourlyWeather = weatherDetail.hourlyWeatherData[indexPath.row]
+        
+        return hourlyCell
+    }
+    
     
 }

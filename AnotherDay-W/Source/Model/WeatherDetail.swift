@@ -20,6 +20,14 @@ private let dateFormatter: DateFormatter = {
     return dateFormatter
 }()
 
+private let hourFormatter: DateFormatter = {
+    let hourFormatter = DateFormatter()
+    
+    hourFormatter.dateFormat = "a h시"
+    
+    return hourFormatter
+}()
+
 struct DailyWeather {
     var dailyIcon: String
     var dailyWeekday: String
@@ -28,12 +36,19 @@ struct DailyWeather {
     var dailyLow: Int
 }
 
+struct HourlyWeather {
+    var hour: String
+    var hourlyTemprature: Int
+    var hourlyIcon: String
+}
+
 class WeatherDetail: WeatherLocation {
     
     private struct Result: Codable {
         var timezone: String
         var current: Current
         var daily: [Daily]
+        var hourly: [Hourly]
     }
     
     private struct Current: Codable {
@@ -48,9 +63,16 @@ class WeatherDetail: WeatherLocation {
         var weather: [Weather]
     }
     
+    private struct Hourly: Codable {
+        var dt: TimeInterval
+        var temp: Double
+        var weather: [Weather]
+    }
+    
     private struct Weather: Codable {
         var description: String
         var icon: String
+        var id: Int
     }
     
     private struct Temp: Codable {
@@ -65,6 +87,7 @@ class WeatherDetail: WeatherLocation {
     var summary = ""
     var dayIcon = ""
     var dailyWeatherData: [DailyWeather] = []
+    var hourlyWeatherData: [HourlyWeather] = []
     
     func getData(completed: @escaping () -> ()) {
         let urlString =  "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&exclude=minutely&units=metric&appid=\(APIkeys.openWheatherKey)"
@@ -116,9 +139,31 @@ class WeatherDetail: WeatherLocation {
                     
                     self.dailyWeatherData.append(dailyWeather)
                     
-                    print("Day: \(dailyWeekday), High: \(dailyHigh), Low: \(dailyLow)")
+                    //print("날짜: \(dailyWeekday), 최고온도: \(dailyHigh), 최저온도: \(dailyLow)")
                 }
                 
+                // openWeatherAPI에서 넘어오는 날씨 데이터가 어떻게 될지 모르므로...
+                // Default는 너무 많은 데이터가 넘어오니 24시간만 받도록 강제함.
+                let lastHour = min(24, result.hourly.count)
+                
+                if lastHour > 0 {
+                    // 0부터 시작하면 현재 시간의 온도부터 나오기 때문에 1부터 시작한다.
+                    for index in 1..<lastHour {
+                        let hourlyDate = Date(timeIntervalSince1970: result.hourly[index].dt)
+                        
+                        // 타임존 맞추기. ex) +0900 Asia/Seoul
+                        hourFormatter.timeZone = TimeZone(identifier: result.timezone)
+                        
+                        let hour = hourFormatter.string(from: hourlyDate)
+                        let hourlyIcon = result.hourly[index].weather[0].icon
+                        let hourlyTempreature = Int(result.hourly[index].temp.rounded()) // .rounded() -> 반올림
+                        let hourlyWeather = HourlyWeather(hour: hour, hourlyTemprature: hourlyTempreature, hourlyIcon: hourlyIcon)
+                        
+                        self.hourlyWeatherData.append(hourlyWeather)
+                        
+                        //print("시간: \(hour), 온도: \(hourlyTempreature), 아이콘: \(hourlyIcon)")
+                    }
+                }
             } catch {
                 print("🚫 JSON 에러: \(error.localizedDescription)")
             }

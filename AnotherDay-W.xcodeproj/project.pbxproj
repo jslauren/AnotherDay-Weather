@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		890ED87B25FB22C600F3F2C8 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890ED87A25FB22C600F3F2C8 /* DailyTableViewCell.swift */; };
+		890ED87E25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890ED87D25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift */; };
 		890F4F3125F90398008BAB79 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F4F3025F90398008BAB79 /* PageVC.swift */; };
 		8912B53225F3C28D00718990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8912B53425F3C28D00718990 /* InfoPlist.strings */; };
 		8929878325F47B1D00D1FFE7 /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929878225F47B1D00D1FFE7 /* PermissionVC.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		221F154221575A6AAF03CC0B /* Pods_AnotherDay_W.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnotherDay_W.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		890ED87A25FB22C600F3F2C8 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
+		890ED87D25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionViewCell.swift; sourceTree = "<group>"; };
 		890F4F3025F90398008BAB79 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		8912B53325F3C28D00718990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8912B53625F3C2A000718990 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				89A4777825F3BEC10075D97F /* LaunchScreen.storyboard */,
 				89A4777325F3BEC10075D97F /* Main.storyboard */,
 				890ED87A25FB22C600F3F2C8 /* DailyTableViewCell.swift */,
+				890ED87D25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				896EE6DB25F9D4620023E3D5 /* WeatherDetail.swift in Sources */,
 				894F209625F50B7E001FA330 /* AddLocationVC.swift in Sources */,
 				8929878325F47B1D00D1FFE7 /* PermissionVC.swift in Sources */,
+				890ED87E25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
