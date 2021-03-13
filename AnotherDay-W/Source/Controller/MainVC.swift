@@ -141,10 +141,12 @@ class MainVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! AddLocationVC
-        let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
-        
-        destination.weatherLocations = pageVC.weatherLocations
+        if segue.identifier == "ShowAddLocationVC" {
+            let destination = segue.destination as! AddLocationVC
+            let pageVC = UIApplication.shared.windows.first!.rootViewController as! PageVC
+            
+            destination.weatherLocations = pageVC.weatherLocations
+        }
     }
     
     @IBAction func pageControlTapped(_ sender: UIPageControl) {
@@ -221,6 +223,10 @@ extension MainVC: CLLocationManagerDelegate {
         // 델리게이트 참조를 통해 메소드를 호출할 인스턴스 객체를 전달받고,
         // 이 인스턴스 객체가 구현하고 있는 프로토콜에 선언된 메소드를 호출하는 것.
         locationManager.delegate = self
+        
+        // 밑에 두 줄을 작성하지 않으면 위치 속도를 가져오는데 엄청 걸린다.         Ref)https://www.debugcn.com/ko/article/21949717.html
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest  // 정확도 설정.
+        locationManager?.startUpdatingLocation()                    // 사용자의 현재 위치에 대해 업데이트를 시작함.
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
