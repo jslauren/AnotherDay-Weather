@@ -7,5 +7,6 @@ target 'AnotherDay-W' do
 
   # Pods for AnotherDay-W
   pod 'GooglePlaces', '4.1.0'
+  pod 'SideMenu', '~> 6.0'
   
 end

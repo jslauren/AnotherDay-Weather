@@ -281,6 +281,8 @@ extension MainVC: CLLocationManagerDelegate {
             pageVC.weatherLocations[self.locationIndex].name = locationName
 
             self.updateUserInterface()
+            
+            self.locationManager?.stopUpdatingLocation()
         }
     }
     

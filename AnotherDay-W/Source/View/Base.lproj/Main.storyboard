@@ -17,6 +17,54 @@
             </objects>
             <point key="canvasLocation" x="673" y="-1244"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="09r-Hb-lbv">
+            <objects>
+                <tableViewController id="Xdh-xC-c7o" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="czb-Oo-O3C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6ai-gk-3bU">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6ai-gk-3bU" id="LME-iW-9Fo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xdh-xC-c7o" id="UXe-O5-UUG"/>
+                            <outlet property="delegate" destination="Xdh-xC-c7o" id="wfz-UR-9zr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Mes-vm-aw2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xif-oq-DI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="168"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="hxN-gW-bpG">
+            <objects>
+                <navigationController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="pKW-vl-zKR" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7dC-Dl-Goi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="Xdh-xC-c7o" kind="relationship" relationship="rootViewController" id="ATm-Yr-B2d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YKM-GT-Fwm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673" y="167"/>
+        </scene>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -119,8 +167,11 @@
                                     <constraint firstAttribute="height" constant="44" id="OVh-XS-OrG"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Menu" image="SideMenu.png" id="tC5-sl-gR8">
+                                    <barButtonItem title="Menu" image="SideMenu" id="tC5-sl-gR8">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="pKW-vl-zKR" kind="presentation" id="uRZ-9h-NRV"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bNQ-8H-Fjf"/>
                                     <barButtonItem systemItem="add" id="oE5-Ou-mf1">
@@ -443,7 +494,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SideMenu.png" width="30" height="30"/>
+        <image name="SideMenu" width="30" height="30"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

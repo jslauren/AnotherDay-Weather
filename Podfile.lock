@@ -2,19 +2,23 @@ PODS:
   - GoogleMaps/Base (4.1.0)
   - GooglePlaces (4.1.0):
     - GoogleMaps/Base (= 4.1.0)
+  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - GooglePlaces (= 4.1.0)
+  - SideMenu (~> 6.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - GoogleMaps
     - GooglePlaces
+    - SideMenu
 
 SPEC CHECKSUMS:
   GoogleMaps: 008e2c80e38605b56b560e8deb73d4194ff30bef
   GooglePlaces: a058b776259c13e1323c9ff135549cb1b13ad8e7
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 2f8e941b8c0d6e62a28392bd2c7eb65d6e02c76a
+PODFILE CHECKSUM: 8e22fc9c442e4d6434de59c0fbdfb304d7eccb3a
 
 COCOAPODS: 1.5.2
