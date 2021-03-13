@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey(APIkeys.googlePlacesKey)
         
+        sleep(1)
+        
         return true
     }
 

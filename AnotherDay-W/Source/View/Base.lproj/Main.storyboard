@@ -126,7 +126,7 @@
                                     <barButtonItem systemItem="add" id="oE5-Ou-mf1">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="3kI-9g-WWT" kind="presentation" id="EqM-Es-nua"/>
+                                            <segue destination="3kI-9g-WWT" kind="presentation" identifier="ShowAddLocationVC" id="EqM-Es-nua"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
