@@ -119,7 +119,7 @@ class MainVC: UIViewController {
     func clearUserInterface() {
         placeLabel.text = ""
         summaryLabel.text = ""
-        temperatureImageView.image  = UIImage()
+        temperatureImageView.image = UIImage()
         temperatureLabel.text = ""
         maxTemperatureLabel.text = ""
         minTemperatureLabel.text = ""
