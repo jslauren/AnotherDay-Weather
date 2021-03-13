@@ -11,7 +11,6 @@
 		890ED87E25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890ED87D25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift */; };
 		890F4F3125F90398008BAB79 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F4F3025F90398008BAB79 /* PageVC.swift */; };
 		8912B53225F3C28D00718990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8912B53425F3C28D00718990 /* InfoPlist.strings */; };
-		8929878325F47B1D00D1FFE7 /* PermissionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929878225F47B1D00D1FFE7 /* PermissionVC.swift */; };
 		8929879B25F4C95B00D1FFE7 /* SideMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8929879A25F4C95B00D1FFE7 /* SideMenu.png */; };
 		8929AF5F25F71BF9001D9BA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8929AF5E25F71BF9001D9BA5 /* Color.swift */; };
 		894F209625F50B7E001FA330 /* AddLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F209525F50B7E001FA330 /* AddLocationVC.swift */; };
@@ -36,7 +35,6 @@
 		8912B53625F3C2A000718990 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		8912B53725F3C2A000718990 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8912B53825F3C2A000718990 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8929878225F47B1D00D1FFE7 /* PermissionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionVC.swift; sourceTree = "<group>"; };
 		8929879A25F4C95B00D1FFE7 /* SideMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SideMenu.png; path = ../../../../Downloads/SideMenu.png; sourceTree = "<group>"; };
 		8929AF5E25F71BF9001D9BA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		894F209525F50B7E001FA330 /* AddLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationVC.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		89A4778F25F3C0DA0075D97F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8929878225F47B1D00D1FFE7 /* PermissionVC.swift */,
 				89A4777125F3BEC10075D97F /* MainVC.swift */,
 				890F4F3025F90398008BAB79 /* PageVC.swift */,
 				894F209525F50B7E001FA330 /* AddLocationVC.swift */,
@@ -186,7 +183,6 @@
 				89A4776625F3BEC10075D97F /* Sources */,
 				89A4776725F3BEC10075D97F /* Frameworks */,
 				89A4776825F3BEC10075D97F /* Resources */,
-				3D046C744895DB11255C46F3 /* [CP] Embed Pods Frameworks */,
 				61B01C73FB45169FA70551DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -265,28 +261,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D046C744895DB11255C46F3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenuSwift/SideMenuSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenuSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		61B01C73FB45169FA70551DB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,7 +296,6 @@
 				890ED87B25FB22C600F3F2C8 /* DailyTableViewCell.swift in Sources */,
 				896EE6DB25F9D4620023E3D5 /* WeatherDetail.swift in Sources */,
 				894F209625F50B7E001FA330 /* AddLocationVC.swift in Sources */,
-				8929878325F47B1D00D1FFE7 /* PermissionVC.swift in Sources */,
 				890ED87E25FB70C900F3F2C8 /* HourlyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

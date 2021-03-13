@@ -6,9 +6,6 @@ target 'AnotherDay-W' do
   use_frameworks!
 
   # Pods for AnotherDay-W
-  pod 'Alamofire', '~> 5.2'
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'SideMenuSwift'
   pod 'GooglePlaces', '4.1.0'
   
 end
