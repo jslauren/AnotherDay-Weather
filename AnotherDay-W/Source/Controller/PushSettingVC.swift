@@ -153,7 +153,6 @@ class PushSettingVC: UIViewController {
             let cancelAction = UIAlertAction(title: "취소", style: .default) { (_) in
                 self.dismiss(animated: true, completion: nil)
             }
-            // let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
             alertController.addAction(settingsAction)
             alertController.addAction(cancelAction)
