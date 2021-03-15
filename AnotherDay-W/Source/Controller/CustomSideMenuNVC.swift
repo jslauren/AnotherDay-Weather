@@ -21,5 +21,4 @@ class CustomSideMenuNVC: SideMenuNavigationController {
         self.presentationStyle = .menuSlideIn
         self.menuWidth = 290
     }
-
 }
