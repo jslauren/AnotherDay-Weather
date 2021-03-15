@@ -15,14 +15,13 @@ import UIKit
 class PageVC: UIPageViewController {
     
     var weatherLocations: [WeatherLocation] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        initView()
         
+        initView()
     }
-
+    
     func initView() {
         self.delegate = self
         self.dataSource = self
@@ -77,5 +76,4 @@ extension PageVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
         }
         return nil
     }
-    
 }

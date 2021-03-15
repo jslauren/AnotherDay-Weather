@@ -138,17 +138,14 @@ class WeatherDetail: WeatherLocation {
                     let dailyWeekday = dateFormatter.string(from: weekdayDate)
                     let dailyIcon = result.daily[index].weather[0].icon
                     let dailySummary = result.daily[index].weather[0].description
-                    let dailyHigh = Int(result.daily[index].temp.max.rounded()) // .rounded() -> 반올림
+                    let dailyHigh = Int(result.daily[index].temp.max.rounded())
                     let dailyLow = Int(result.daily[index].temp.min.rounded())
                     
                     let dailyWeather = DailyWeather(dailyIcon: dailyIcon, dailyWeekday: dailyWeekday, dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
                     
                     self.dailyWeatherData.append(dailyWeather)
-                    
-                    //print("날짜: \(dailyWeekday), 최고온도: \(dailyHigh), 최저온도: \(dailyLow)")
                 }
                 
-                // openWeatherAPI에서 넘어오는 날씨 데이터가 어떻게 될지 모르므로...
                 // Default는 너무 많은 데이터가 넘어오니 24시간만 받도록 강제함.
                 let lastHour = min(24, result.hourly.count)
                 
@@ -162,12 +159,10 @@ class WeatherDetail: WeatherLocation {
                         
                         let hour = hourFormatter.string(from: hourlyDate)
                         let hourlyIcon = result.hourly[index].weather[0].icon
-                        let hourlyTempreature = Int(result.hourly[index].temp.rounded()) // .rounded() -> 반올림
+                        let hourlyTempreature = Int(result.hourly[index].temp.rounded())
                         let hourlyWeather = HourlyWeather(hour: hour, hourlyTemprature: hourlyTempreature, hourlyIcon: hourlyIcon)
                         
                         self.hourlyWeatherData.append(hourlyWeather)
-                        
-                        //print("시간: \(hour), 온도: \(hourlyTempreature), 아이콘: \(hourlyIcon)")
                     }
                 }
             } catch {
@@ -175,7 +170,6 @@ class WeatherDetail: WeatherLocation {
             }
             completed()
         }
-        //모든 작업은 기본적으로 일시정지된 상태로 시작. 데이터 작업은 resume()를 호출하여 시작.
         task.resume()
     }
     
@@ -185,18 +179,13 @@ class WeatherDetail: WeatherLocation {
         
         print("🏃🏻🏃🏻 historicalURLString에 접근하는 중입니다. \(historicalURLString)")
         
-        // URL 생성
         guard let url = URL(string: historicalURLString) else {
             print("🚫 에러: URL을 생성할 수 없습니다. \(historicalURLString)")
             completed()
             
             return
         }
-        
-        // 세션 생성
         let session = URLSession.shared
-        
-        // .dataTsk메서드를 이용하여 데이터 받아오기.
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("🚫 에러: \(error.localizedDescription)")
@@ -211,7 +200,6 @@ class WeatherDetail: WeatherLocation {
             }
             completed()
         }
-        //모든 작업은 기본적으로 일시정지된 상태로 시작. 데이터 작업은 resume()를 호출하여 시작.
         task.resume()
     }
 }
