@@ -57,13 +57,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어제와 다른 오늘: W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBq-sJ-FjK">
-                                                <rect key="frame" x="130" y="127" width="115.5" height="20.5"/>
+                                                <rect key="frame" x="130" y="127" width="115" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱 버전 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-aG-BO1">
-                                                <rect key="frame" x="130" y="148.5" width="115.5" height="20.5"/>
+                                                <rect key="frame" x="130" y="148.5" width="115" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -87,6 +87,9 @@
                                         <state key="normal" title="📢 푸시알림 설정하기">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Vsw-Cy-92G" kind="presentation" identifier="ShowPushSettingVC" id="f6j-06-Grz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -118,6 +121,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqu-OF-jce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1364" y="165.06746626686657"/>
+        </scene>
+        <!--Push SettingVC-->
+        <scene sceneID="gpV-mD-Liy">
+            <objects>
+                <viewController storyboardIdentifier="PushSettingVC" id="Vsw-Cy-92G" customClass="PushSettingVC" customModule="AnotherDay_W" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5yC-j2-Qd4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1M-my-dWR">
+                                <rect key="frame" x="16" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="hGg-VJ-bJs"/>
+                                </constraints>
+                                <state key="normal" image="x.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="xButtonPressed:" destination="Vsw-Cy-92G" eventType="touchUpInside" id="kxn-We-QAv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuW-3f-aaw">
+                                <rect key="frame" x="314.5" y="20" width="44.5" height="44"/>
+                                <state key="normal" image="checkmark.circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkButtonPressed:" destination="Vsw-Cy-92G" eventType="touchUpInside" id="kgX-30-9Bp"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-i1-mUF">
+                                <rect key="frame" x="16" y="157.5" width="343" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="adP-ji-daS"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="ko"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⏰ 푸시 알림을 받고싶은 시간을 설정하세요 ⏰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-hK-yGb">
+                                <rect key="frame" x="13.5" y="123.5" width="348" height="26"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외출 전 날씨 확인 서비스!! 😎" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpb-xY-d70">
+                                <rect key="frame" x="0.0" y="87" width="375" height="29"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스가 비활성화 되어있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ft-Nu-tM4">
+                                <rect key="frame" x="9" y="445.5" width="357" height="28"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PuF-Ua-VnL">
+                                <rect key="frame" x="215" y="535" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchToggled:" destination="Vsw-Cy-92G" eventType="valueChanged" id="B0x-Eb-zSM"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 활성화 : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcK-aZ-39C">
+                                <rect key="frame" x="85" y="535" width="122" height="31"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QWz-fy-TZj"/>
+                        <color key="backgroundColor" red="0.9301017992424242" green="0.9301017992424242" blue="0.9301017992424242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MFI-hK-yGb" firstAttribute="top" secondItem="fpb-xY-d70" secondAttribute="bottom" constant="7.5" id="2s1-Vu-bkk"/>
+                            <constraint firstItem="R1M-my-dWR" firstAttribute="baseline" secondItem="JuW-3f-aaw" secondAttribute="baseline" id="3Xu-qf-ZxC"/>
+                            <constraint firstItem="R1M-my-dWR" firstAttribute="leading" secondItem="5yC-j2-Qd4" secondAttribute="leadingMargin" id="9z3-Ap-R2t"/>
+                            <constraint firstItem="EcK-aZ-39C" firstAttribute="leading" secondItem="QWz-fy-TZj" secondAttribute="leading" constant="85" id="D5C-0T-9Cc"/>
+                            <constraint firstItem="fpb-xY-d70" firstAttribute="top" secondItem="R1M-my-dWR" secondAttribute="bottom" constant="23" id="Dlu-eX-lRq"/>
+                            <constraint firstItem="EcK-aZ-39C" firstAttribute="top" secondItem="PuF-Ua-VnL" secondAttribute="top" id="EX7-6e-d4a"/>
+                            <constraint firstItem="EcK-aZ-39C" firstAttribute="bottom" secondItem="PuF-Ua-VnL" secondAttribute="bottom" id="GdT-oI-smN"/>
+                            <constraint firstItem="0Ft-Nu-tM4" firstAttribute="leading" secondItem="QWz-fy-TZj" secondAttribute="leading" constant="9" id="Hah-xD-Kc5"/>
+                            <constraint firstItem="fpb-xY-d70" firstAttribute="top" secondItem="5yC-j2-Qd4" secondAttribute="top" constant="87" id="IMa-vB-gPa"/>
+                            <constraint firstItem="MFI-hK-yGb" firstAttribute="centerX" secondItem="Fan-i1-mUF" secondAttribute="centerX" id="Nwq-NH-2xo"/>
+                            <constraint firstItem="Fan-i1-mUF" firstAttribute="trailing" secondItem="JuW-3f-aaw" secondAttribute="trailing" id="QF1-0n-KTG"/>
+                            <constraint firstItem="0Ft-Nu-tM4" firstAttribute="centerX" secondItem="Fan-i1-mUF" secondAttribute="centerX" id="Ylw-OD-sb8"/>
+                            <constraint firstItem="Fan-i1-mUF" firstAttribute="leading" secondItem="R1M-my-dWR" secondAttribute="leading" id="Zz7-El-uBC"/>
+                            <constraint firstItem="fpb-xY-d70" firstAttribute="leading" secondItem="5yC-j2-Qd4" secondAttribute="leading" id="b7z-v6-BCg"/>
+                            <constraint firstItem="Fan-i1-mUF" firstAttribute="top" secondItem="MFI-hK-yGb" secondAttribute="bottom" constant="8" symbolic="YES" id="bg2-MP-NMu"/>
+                            <constraint firstItem="JuW-3f-aaw" firstAttribute="trailing" secondItem="5yC-j2-Qd4" secondAttribute="trailingMargin" id="c9a-ws-VWj"/>
+                            <constraint firstItem="0Ft-Nu-tM4" firstAttribute="top" secondItem="Fan-i1-mUF" secondAttribute="bottom" constant="8" symbolic="YES" id="cry-Yb-33e"/>
+                            <constraint firstItem="fpb-xY-d70" firstAttribute="centerX" secondItem="MFI-hK-yGb" secondAttribute="centerX" id="h0K-PZ-KZn"/>
+                            <constraint firstItem="EcK-aZ-39C" firstAttribute="top" secondItem="0Ft-Nu-tM4" secondAttribute="bottom" constant="61.5" id="ran-iO-bKx"/>
+                            <constraint firstItem="PuF-Ua-VnL" firstAttribute="leading" secondItem="EcK-aZ-39C" secondAttribute="trailing" constant="8" symbolic="YES" id="zPE-Yz-Lcs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Fan-i1-mUF" id="hhH-pb-7wy"/>
+                        <outlet property="serviceSwitch" destination="PuF-Ua-VnL" id="GPE-dU-1pr"/>
+                        <outlet property="settedTimeLabel" destination="0Ft-Nu-tM4" id="t4d-In-bhK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ord-B0-9SX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045.5999999999999" y="164.16791604197903"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -550,7 +655,9 @@
     <resources>
         <image name="02d" width="50" height="50"/>
         <image name="SideMenu" width="30" height="30"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
+        <image name="x.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

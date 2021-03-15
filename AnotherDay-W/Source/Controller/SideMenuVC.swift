@@ -22,7 +22,6 @@ class SideMenuVC: UIViewController {
         super.viewDidLoad()
 
         appVerLabel.text = "앱 버전 : \(appVer)"
-        
     }
 }
 
