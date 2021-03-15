@@ -44,6 +44,7 @@
 		89A4777525F3BEC10075D97F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A4777325F3BEC10075D97F /* Main.storyboard */; };
 		89A4777725F3BEC10075D97F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A4777625F3BEC10075D97F /* Assets.xcassets */; };
 		89A4777A25F3BEC10075D97F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A4777825F3BEC10075D97F /* LaunchScreen.storyboard */; };
+		89A54B5225FDBBF50064BBDF /* PushSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A54B5125FDBBF50064BBDF /* PushSettingVC.swift */; };
 		8B27207A538163745783626C /* Pods_AnotherDay_W.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221F154221575A6AAF03CC0B /* Pods_AnotherDay_W.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		89A4777625F3BEC10075D97F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89A4777925F3BEC10075D97F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A4777B25F3BEC10075D97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89A54B5125FDBBF50064BBDF /* PushSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushSettingVC.swift; sourceTree = "<group>"; };
 		986FF15F0D648FB0538D8011 /* Pods-AnotherDay-W.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnotherDay-W.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W.release.xcconfig"; sourceTree = "<group>"; };
 		FC85E7B0833E0E8A05550442 /* Pods-AnotherDay-W.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnotherDay-W.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnotherDay-W/Pods-AnotherDay-W.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,6 +232,7 @@
 				894F209525F50B7E001FA330 /* AddLocationVC.swift */,
 				894BC9AC25FCB123006A7928 /* SideMenuVC.swift */,
 				894BC9E025FCB93E006A7928 /* CustomSideMenuNVC.swift */,
+				89A54B5125FDBBF50064BBDF /* PushSettingVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				894F20A625F51355001FA330 /* APIkeys.swift in Sources */,
 				89A4777225F3BEC10075D97F /* MainVC.swift in Sources */,
 				894BC9E125FCB93E006A7928 /* CustomSideMenuNVC.swift in Sources */,
+				89A54B5225FDBBF50064BBDF /* PushSettingVC.swift in Sources */,
 				894BC9AD25FCB123006A7928 /* SideMenuVC.swift in Sources */,
 				894F209A25F50C11001FA330 /* WeatherLocation.swift in Sources */,
 				8929AF5F25F71BF9001D9BA5 /* Color.swift in Sources */,
